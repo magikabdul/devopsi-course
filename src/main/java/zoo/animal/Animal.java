@@ -1,8 +1,8 @@
-package zoo;
+package zoo.animal;
 
 import java.util.Objects;
 
-public class Animal {
+public class Animal implements Speakable{
     private String name;
     private int yearOfBirth;
     private AnimalType type;
@@ -63,5 +63,10 @@ public class Animal {
                 ", yearOfBirth=" + yearOfBirth +
                 ", type=" + type +
                 '}';
+    }
+
+    @Override
+    public void sound() {
+        System.out.println("wrrr");
     }
 }

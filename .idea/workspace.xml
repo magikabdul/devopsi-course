@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6c8e4ad6-3e0e-4255-b180-cf6e12f76042" name="Changes" comment="">
+    <list default="true" id="6c8e4ad6-3e0e-4255-b180-cf6e12f76042" name="Changes" comment="class Numbers and usage demo">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -16,8 +17,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -48,7 +49,20 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
-  <component name="RunManager" selected="Application.NumbersApplication">
+  <component name="RunManager" selected="Application.ForWillingApplication">
+    <configuration name="ForWillingApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="willing.ForWillingApplication" />
+      <module name="devopsi-course" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="willing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="NumbersApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="numbers.NumbersApplication" />
       <module name="devopsi-course" />
@@ -71,6 +85,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ForWillingApplication" />
         <item itemvalue="Application.NumbersApplication" />
         <item itemvalue="Application.ZooApplication" />
       </list>
@@ -85,7 +100,7 @@
       <option name="presentableId" value="Default" />
       <updated>1644672153091</updated>
       <workItem from="1644672159901" duration="6470000" />
-      <workItem from="1644705833095" duration="2283000" />
+      <workItem from="1644705833095" duration="8491000" />
     </task>
     <task id="LOCAL-00001" summary="initial state of empty mvn project">
       <created>1644672457031</created>
@@ -101,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644678200780</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="class Numbers and usage demo">
+      <created>1644708326638</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1644708326638</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -121,7 +143,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial state of empty mvn project" />
     <MESSAGE value="classes Zoo and Animals and usage demo" />
-    <option name="LAST_COMMIT_MESSAGE" value="classes Zoo and Animals and usage demo" />
+    <MESSAGE value="class Numbers and usage demo" />
+    <option name="LAST_COMMIT_MESSAGE" value="class Numbers and usage demo" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

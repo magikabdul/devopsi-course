@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6c8e4ad6-3e0e-4255-b180-cf6e12f76042" name="Changes" comment="class Numbers and usage demo">
+    <list default="true" id="6c8e4ad6-3e0e-4255-b180-cf6e12f76042" name="Changes" comment="additional task for willing">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +19,7 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
       </list>
     </option>
@@ -47,15 +49,25 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
-  <component name="RunManager" selected="Application.ForWillingApplication">
-    <configuration name="ForWillingApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="willing.ForWillingApplication" />
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="basic" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.GenderApp">
+    <configuration name="AbsoluteValueApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="basic.AbsoluteValueApp" />
       <module name="devopsi-course" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="willing.*" />
+          <option name="PATTERN" value="basic.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -63,12 +75,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NumbersApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="numbers.NumbersApplication" />
+    <configuration name="GenderApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="basic.GenderApp" />
       <module name="devopsi-course" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="numbers.*" />
+          <option name="PATTERN" value="basic.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -76,18 +88,60 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ZooApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="zoo.ZooApplication" />
+    <configuration name="GradeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="devopsi-course" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="basic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="basic" />
+      <option name="MAIN_CLASS_NAME" value="basic.GradeTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GradeTest.shouldReturnGradeB" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="devopsi-course" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="basic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="basic" />
+      <option name="MAIN_CLASS_NAME" value="basic.GradeTest" />
+      <option name="METHOD_NAME" value="shouldReturnGradeB" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GradeTest.shouldReturnGradeC" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="devopsi-course" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="basic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="basic" />
+      <option name="MAIN_CLASS_NAME" value="basic.GradeTest" />
+      <option name="METHOD_NAME" value="shouldReturnGradeC" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ForWillingApplication" />
-        <item itemvalue="Application.NumbersApplication" />
-        <item itemvalue="Application.ZooApplication" />
+        <item itemvalue="Application.GenderApp" />
+        <item itemvalue="Application.AbsoluteValueApp" />
+        <item itemvalue="JUnit.GradeTest" />
+        <item itemvalue="JUnit.GradeTest.shouldReturnGradeC" />
+        <item itemvalue="JUnit.GradeTest.shouldReturnGradeB" />
       </list>
     </recent_temporary>
   </component>
@@ -100,7 +154,8 @@
       <option name="presentableId" value="Default" />
       <updated>1644672153091</updated>
       <workItem from="1644672159901" duration="6470000" />
-      <workItem from="1644705833095" duration="8491000" />
+      <workItem from="1644705833095" duration="9392000" />
+      <workItem from="1644876552409" duration="7780000" />
     </task>
     <task id="LOCAL-00001" summary="initial state of empty mvn project">
       <created>1644672457031</created>
@@ -123,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644708326638</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="additional task for willing">
+      <created>1644751071242</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1644751071242</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,7 +206,8 @@
     <MESSAGE value="initial state of empty mvn project" />
     <MESSAGE value="classes Zoo and Animals and usage demo" />
     <MESSAGE value="class Numbers and usage demo" />
-    <option name="LAST_COMMIT_MESSAGE" value="class Numbers and usage demo" />
+    <MESSAGE value="additional task for willing" />
+    <option name="LAST_COMMIT_MESSAGE" value="additional task for willing" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

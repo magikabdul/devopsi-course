@@ -1,4 +1,4 @@
-package coud.cholewa.clinic.patient.model;
+package cloud.cholewa.clinic.patient.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

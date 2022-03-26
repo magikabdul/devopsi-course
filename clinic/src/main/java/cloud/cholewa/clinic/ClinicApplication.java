@@ -1,4 +1,4 @@
-package coud.cholewa.clinic;
+package cloud.cholewa.clinic;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

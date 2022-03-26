@@ -1,4 +1,4 @@
-package coud.cholewa.clinic;
+package cloud.cholewa.clinic;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

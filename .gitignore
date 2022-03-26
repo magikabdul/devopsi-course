@@ -10,7 +10,7 @@
 
 #General
 /.idea
-/target
+target
 *.iml
 
 #others

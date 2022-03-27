@@ -9,5 +9,7 @@ public interface PatientRepository {
 
     List<Patient> findAllPatients();
 
-    Optional<Patient> findPatientByPesel(Long pesel);
+    Optional<Patient> findPatientByPesel(String pesel);
+
+    Patient savePatient (Patient patient);
 }

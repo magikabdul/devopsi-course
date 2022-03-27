@@ -10,15 +10,21 @@ import java.util.Optional;
 @Repository
 public class InMemoryPatientRepository implements PatientRepository {
 
-    private final HashMap<Long, Patient> patiens = new HashMap<>();
+    private final HashMap<String, Patient> patients = new HashMap<>();
 
     @Override
     public List<Patient> findAllPatients() {
-        return patiens.values().stream().toList();
+        return patients.values().stream().toList();
     }
 
     @Override
-    public Optional<Patient> findPatientByPesel(Long pesel) {
-        return Optional.ofNullable(patiens.get(pesel));
+    public Optional<Patient> findPatientByPesel(String pesel) {
+        return Optional.ofNullable(patients.get(pesel));
+    }
+
+    @Override
+    public Patient savePatient(Patient patient) {
+        patients.put(patient.getPesel(), patient);
+        return patients.get(patient.getPesel());
     }
 }

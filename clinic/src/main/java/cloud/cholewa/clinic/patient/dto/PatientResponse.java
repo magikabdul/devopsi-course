@@ -1,11 +1,15 @@
 package cloud.cholewa.clinic.patient.dto;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Setter
+@Getter
+@NoArgsConstructor
 public class PatientResponse {
 
-    private Long id;
+    private String pesel;
     private String firstName;
     private String lastName;
     private String phone;

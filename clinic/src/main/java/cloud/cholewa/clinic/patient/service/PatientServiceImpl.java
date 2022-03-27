@@ -43,6 +43,11 @@ public class PatientServiceImpl implements PatientService{
                 ));
     }
 
+    @Override
+    public void deletePatientByPesel(String pesel) {
+        patientRepository.removePatient(findPatientByPesel(pesel));
+    }
+
     private Patient findPatientByPesel(String pesel) {
         return patientRepository.findPatientByPesel(pesel)
                 .orElseThrow(() -> new PatientException("Provided pesel number not exists"));

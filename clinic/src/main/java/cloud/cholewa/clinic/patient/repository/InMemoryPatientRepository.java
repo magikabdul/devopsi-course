@@ -27,4 +27,9 @@ public class InMemoryPatientRepository implements PatientRepository {
         patients.put(patient.getPesel(), patient);
         return patients.get(patient.getPesel());
     }
+
+    @Override
+    public void removePatient(Patient patient) {
+        patients.remove(patient.getPesel());
+    }
 }

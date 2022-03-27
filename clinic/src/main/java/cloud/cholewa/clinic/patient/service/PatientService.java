@@ -12,4 +12,6 @@ public interface PatientService {
     PatientResponse fetchPatientByPesel(String pesel);
 
     PatientResponse registerPatient(PatientRequest patientRequest);
+
+    void deletePatientByPesel(String pesel);
 }

@@ -12,4 +12,6 @@ public interface PatientRepository {
     Optional<Patient> findPatientByPesel(String pesel);
 
     Patient savePatient (Patient patient);
+
+    void removePatient(Patient patient);
 }

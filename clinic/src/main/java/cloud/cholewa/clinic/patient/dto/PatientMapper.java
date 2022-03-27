@@ -7,4 +7,6 @@ import org.mapstruct.Mapper;
 public interface PatientMapper {
 
     PatientResponse mapToPatientResponse(Patient patient);
+
+    Patient mapToPatient(PatientRequest patientRequest);
 }

@@ -1,8 +1,10 @@
 package cloud.cholewa.clinic.patient.service;
 
 import cloud.cholewa.clinic.patient.dto.PatientMapper;
+import cloud.cholewa.clinic.patient.dto.PatientRequest;
 import cloud.cholewa.clinic.patient.dto.PatientResponse;
 import cloud.cholewa.clinic.patient.exception.PatientException;
+import cloud.cholewa.clinic.patient.model.Patient;
 import cloud.cholewa.clinic.patient.repository.PatientRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -25,10 +27,24 @@ public class PatientServiceImpl implements PatientService{
     }
 
     @Override
-    public PatientResponse fetchPatientByPesel(Long pesel) {
-        return patientRepository
-                .findPatientByPesel(pesel)
-                .map(patientMapper::mapToPatientResponse)
+    public PatientResponse fetchPatientByPesel(String pesel) {
+        return patientMapper.mapToPatientResponse(findPatientByPesel(pesel));
+    }
+
+    @Override
+    public PatientResponse registerPatient(PatientRequest patientRequest) {
+        if (patientRepository.findPatientByPesel(patientRequest.getPesel()).isPresent()) {
+            throw new PatientException("Cant add new patients. Pesel exist in database");
+        }
+
+        return patientMapper.mapToPatientResponse(
+                patientRepository.savePatient(
+                        patientMapper.mapToPatient(patientRequest)
+                ));
+    }
+
+    private Patient findPatientByPesel(String pesel) {
+        return patientRepository.findPatientByPesel(pesel)
                 .orElseThrow(() -> new PatientException("Provided pesel number not exists"));
     }
 }

@@ -33,6 +33,12 @@ public class GlobalExceptionHandler {
         return new ErrorResponse(getSource(request), List.of(Objects.requireNonNull(e.getMessage()), "Invalid request to external API - check date format (valid: yyyy-MM-dd)", request.getQueryString()));
     }
 
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(IllegalStateException.class)
+    public ErrorResponse handleIllegalStateException(IllegalStateException e, HttpServletRequest request) {
+        return new ErrorResponse(getSource(request), List.of(e.getMessage()));
+    }
+
     private String getSource(HttpServletRequest request) {
         String DEFAULT_SOURCE_ERROR_MESSAGE = "Unknown source";
 

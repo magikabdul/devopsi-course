@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.io.Writer;
 import java.util.List;
 
 import static cloud.cholewa.exchange.utils.DateTimeUtils.getCurrentDateInISO;
@@ -18,6 +19,7 @@ public class BankExchangeService implements ExchangeService {
 
     private final ExchangeClient exchangeClient;
     private final ExchangeConverter exchangeConverter;
+    private final ExportService exportService;
 
     @Override
     public List<Rate> getAllRates() {
@@ -42,5 +44,12 @@ public class BankExchangeService implements ExchangeService {
                         targetCurrency
                 ))
                 .build();
+    }
+
+    @Override
+    public void createCSVFileWithAllRatesByDate(Writer writer, String date) {
+        String queryDate = date != null ? date : getCurrentDateInISO();
+
+        exportService.writeRatesToFile(writer, exchangeClient.getForAllRatesByDate(queryDate));
     }
 }

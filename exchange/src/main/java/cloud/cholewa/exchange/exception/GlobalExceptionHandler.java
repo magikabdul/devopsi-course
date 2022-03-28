@@ -5,6 +5,7 @@ import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.servlet.HandlerMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,6 +25,12 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MissingServletRequestParameterException.class)
     public ErrorResponse handleMissingServletRequestParameterException(MissingServletRequestParameterException e, HttpServletRequest request) {
         return new ErrorResponse(getSource(request), List.of(Objects.requireNonNull(e.getMessage())));
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(HttpClientErrorException.class)
+    public ErrorResponse handleHttpClientErrorException(HttpClientErrorException e, HttpServletRequest request) {
+        return new ErrorResponse(getSource(request), List.of(Objects.requireNonNull(e.getMessage()), "Invalid request to external API - check date format (valid: yyyy-MM-dd)", request.getQueryString()));
     }
 
     private String getSource(HttpServletRequest request) {

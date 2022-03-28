@@ -1,13 +1,11 @@
 package cloud.cholewa.exchange.client;
 
 import cloud.cholewa.exchange.model.RatesTable;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
 
-@Slf4j
 @Service
 public class ExchangeClient {
 
@@ -17,6 +15,14 @@ public class ExchangeClient {
 
     public RatesTable getForAllRates() {
         RatesTable[] forObject = restTemplate.getForObject(EXCHANGE_URL + "/tables/A", RatesTable[].class);
+
+        return Arrays.stream(forObject).findFirst().orElseThrow();
+    }
+
+    public RatesTable getForAllRatesByDate(String date) {
+        String URL = EXCHANGE_URL + "/tables/A/" + date;
+
+        RatesTable[] forObject = restTemplate.getForObject(URL, RatesTable[].class);
 
         return Arrays.stream(forObject).findFirst().orElseThrow();
     }

@@ -28,7 +28,12 @@ public class ExchangeController {
     public ResponseEntity<ExchangeRateResponse> convertCurrency(
             @RequestParam String sourceCurrency,
             @RequestParam Double sourceValue,
-            @RequestParam String targetCurrency) {
-        return ResponseEntity.ok(exchangeService.getConvertedCurrencyByDate(sourceCurrency, sourceValue, targetCurrency));
+            @RequestParam String targetCurrency,
+            @RequestParam(required = false) String date) {
+        return ResponseEntity.ok(exchangeService.getConvertedCurrencyByDate(
+                sourceCurrency,
+                sourceValue,
+                targetCurrency,
+                date));
     }
 }

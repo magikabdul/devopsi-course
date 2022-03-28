@@ -10,5 +10,5 @@ public interface ExchangeService {
 
     List<Rate> getAllRates();
 
-    ExchangeRateResponse getConvertedCurrencyByDate(String srcCur, Double srcValue, String tarCur);
+    ExchangeRateResponse getConvertedCurrencyByDate(String srcCur, Double srcValue, String tarCur, String date);
 }

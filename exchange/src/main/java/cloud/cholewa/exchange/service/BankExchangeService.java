@@ -4,12 +4,16 @@ import cloud.cholewa.exchange.client.ExchangeClient;
 import cloud.cholewa.exchange.dto.ExchangeRateResponse;
 import cloud.cholewa.exchange.model.Rate;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static cloud.cholewa.exchange.utils.DateTimeUtils.getCurrentDateInISO;
+
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class BankExchangeService implements ExchangeService {
 
     private final ExchangeClient exchangeClient;
@@ -21,20 +25,22 @@ public class BankExchangeService implements ExchangeService {
     }
 
     @Override
-    public ExchangeRateResponse getConvertedCurrencyByDate(String sourceCurrency, Double sourceValue, String targetCurrency) {
-        List<Rate> ratesByDate = exchangeClient.getForAllRatesByDate("2022-03-28").getRates();
+    public ExchangeRateResponse getConvertedCurrencyByDate(String sourceCurrency, Double sourceValue, String targetCurrency, String date) {
+        String queryDate = date != null ? date : getCurrentDateInISO();
+
+        List<Rate> ratesByDate = exchangeClient.getForAllRatesByDate(queryDate).getRates();
 
         return ExchangeRateResponse.builder()
+                .date(queryDate)
                 .sourceCurrency(exchangeConverter.getCurrencyCode(ratesByDate, sourceCurrency))
                 .sourceAmountOfMoney(sourceValue)
                 .targetCurrency(exchangeConverter.getCurrencyCode(ratesByDate, targetCurrency))
-                .targetAmountOfMoney(exchangeConverter.calculateExchangeResult(ratesByDate, sourceCurrency, sourceValue, targetCurrency))
+                .targetAmountOfMoney(exchangeConverter.calculateExchangeResult(
+                        ratesByDate,
+                        sourceCurrency,
+                        sourceValue,
+                        targetCurrency
+                ))
                 .build();
     }
-
-
-
-
-
-
 }

@@ -11,6 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ExchangeRateResponse {
 
+    private String date;
     private String sourceCurrency;
     private double sourceAmountOfMoney;
     private String targetCurrency;

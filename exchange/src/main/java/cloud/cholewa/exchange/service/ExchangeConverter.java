@@ -29,7 +29,7 @@ public class ExchangeConverter {
         double v = getCurrencyValue(rates, srcCur) * srcValue;
 
         return BigDecimal.valueOf(v / getCurrencyValue(rates, tarCur))
-                .setScale(4, RoundingMode.HALF_UP)
+                .setScale(2, RoundingMode.HALF_UP)
                 .doubleValue();
     }
 

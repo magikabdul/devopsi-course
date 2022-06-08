@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
-@Repository
 public class InMemoryPatientRepository implements PatientRepository {
 
     private final HashMap<String, Patient> patients = new HashMap<>();

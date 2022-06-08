@@ -37,6 +37,10 @@ public class LocationEntity {
 
     @PostLoad
     private void postLoad() {
-        shortName = name.substring(5);
+        if (name.length() < 5) {
+            shortName = name;
+        } else {
+            shortName = name.substring(0, 5);
+        }
     }
 }

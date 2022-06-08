@@ -36,7 +36,7 @@ public class PhotographsRepositoryAdapter implements PhotographsRepository {
         var tags = photo.getTags();
 
         for (String name : tags) {
-            var tagEntity = tagRepository.findByName(name);
+            var tagEntity = tagRepository.findByName(name.trim());
             if (tagEntity.isPresent()) {
                 tagsEntity.add(tagEntity.get());
             } else {

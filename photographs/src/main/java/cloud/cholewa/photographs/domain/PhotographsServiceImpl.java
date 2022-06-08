@@ -31,4 +31,16 @@ public class PhotographsServiceImpl implements PhotographsService {
         var savedPhoto = repository.addPhoto(photo);
         return savedPhoto.getId();
     }
+
+    @Override
+    public Long createAlbum(AlbumRequest albumRequest) {
+        var album = Album.builder()
+                .title(albumRequest.getTitle())
+                .description(albumRequest.getDescription())
+                .build();
+
+        var savedAlbum = repository.addAlbum(album);
+
+        return savedAlbum.getId();
+    }
 }

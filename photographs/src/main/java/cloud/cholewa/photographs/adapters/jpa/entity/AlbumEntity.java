@@ -15,7 +15,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "albums")
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor
 @Getter
 @Setter
 public class AlbumEntity {

@@ -1,5 +1,6 @@
 package cloud.cholewa.photographs.adapters.jpa;
 
+import cloud.cholewa.photographs.adapters.jpa.entity.AlbumEntity;
 import cloud.cholewa.photographs.adapters.jpa.entity.LocationEntity;
 import cloud.cholewa.photographs.adapters.jpa.entity.PhotoEntity;
 import cloud.cholewa.photographs.adapters.jpa.entity.TagEntity;
@@ -9,6 +10,7 @@ import cloud.cholewa.photographs.adapters.jpa.repository.JpaCommentRepository;
 import cloud.cholewa.photographs.adapters.jpa.repository.JpaLocationRepository;
 import cloud.cholewa.photographs.adapters.jpa.repository.JpaPhotoRepository;
 import cloud.cholewa.photographs.adapters.jpa.repository.JpaTagRepository;
+import cloud.cholewa.photographs.domain.Album;
 import cloud.cholewa.photographs.domain.Photo;
 import cloud.cholewa.photographs.ports.PhotographsRepository;
 import lombok.RequiredArgsConstructor;
@@ -28,6 +30,17 @@ public class PhotographsRepositoryAdapter implements PhotographsRepository {
     private final JpaCommentRepository commentRepository;
     private final JpaAlbumRepository albumRepository;
     private final PhotographsRepositoryMapper mapper;
+
+    @Override
+    public Album addAlbum(Album album) {
+        var albumEntity = new AlbumEntity();
+        albumEntity.setTitle(album.getTitle());
+        albumEntity.setDescription(album.getDescription());
+
+        var savedAlbum = albumRepository.save(albumEntity);
+
+        return mapper.toDomainSaved(savedAlbum);
+    }
 
     @Override
     public Photo addPhoto(Photo photo) {

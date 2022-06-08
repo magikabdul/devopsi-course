@@ -1,4 +1,4 @@
-package cloud.cholewa.photographs.adapters.entity;
+package cloud.cholewa.photographs.adapters.jpa.entity;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.PostLoad;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -26,6 +28,8 @@ public class LocationEntity {
 
     @Setter
     private String name;
+
+    @Transient
     private String shortName;
 
     public LocationEntity(String name) {
@@ -33,7 +37,11 @@ public class LocationEntity {
     }
 
     @OneToMany(mappedBy = "location")
-    private Set<PhotoEntity> photos;
+    private Set<PhotoEntity> photos = new HashSet<>();
+
+    public void addPhoto(PhotoEntity photoEntity) {
+        photos.add(photoEntity);
+    }
 
     @PostLoad
     private void postLoad() {

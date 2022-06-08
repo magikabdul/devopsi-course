@@ -1,4 +1,4 @@
-package cloud.cholewa.photographs.adapters.entity;
+package cloud.cholewa.photographs.adapters.jpa.entity;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -9,25 +9,24 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import java.util.List;
+import java.time.LocalDate;
 
 @Entity
-@Table(name = "albums")
+@Table(name = "comments")
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @Setter
-public class AlbumEntity {
+public class CommentEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    private String title;
-    private String description;
-    private int views;
+    private LocalDate date;
+    private String body;
 
-    @OneToMany(mappedBy = "album")
-    private List<PhotoEntity> photos;
+    @ManyToOne
+    private PhotoEntity photo;
 }

@@ -1,4 +1,4 @@
-package cloud.cholewa.photographs.adapters.entity;
+package cloud.cholewa.photographs.adapters.jpa.entity;
 
 import cloud.cholewa.photographs.domain.PrivacyType;
 import lombok.AccessLevel;
@@ -21,7 +21,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "photos")
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor
 @Getter
 @Setter
 public class PhotoEntity {

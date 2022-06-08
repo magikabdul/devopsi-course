@@ -12,6 +12,7 @@
     <modules>
         <module>clinic</module>
         <module>exchange</module>
+        <module>photographs</module>
     </modules>
 
     <properties>

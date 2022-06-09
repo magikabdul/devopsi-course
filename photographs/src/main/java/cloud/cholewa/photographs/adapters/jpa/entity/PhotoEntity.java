@@ -17,6 +17,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -48,8 +49,12 @@ public class PhotoEntity {
     private Set<TagEntity> tags;
 
     @OneToMany(mappedBy =  "photo")
-    private Set<CommentEntity> comments;
+    private Set<CommentEntity> comments = new HashSet<>();
 
     @ManyToOne
     private LocationEntity location;
+
+    public void addComment(CommentEntity commentEntity) {
+        comments.add(commentEntity);
+    }
 }

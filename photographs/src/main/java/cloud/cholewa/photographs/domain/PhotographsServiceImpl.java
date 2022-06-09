@@ -14,6 +14,20 @@ public class PhotographsServiceImpl implements PhotographsService {
     private final PhotographsRepository repository;
 
     @Override
+    public Long addComment(Long photoId, CommentRequest commentRequest) {
+        var photo = repository.getPhotoById(photoId).orElseThrow(() -> new PhotographsException("Photo not found"));
+
+        var commentToSave = Comment.builder()
+                .date(dateProvider.getDate())
+                .body(commentRequest.getBody())
+                .build();
+
+        var comment = repository.addComment(photo, commentToSave);
+
+        return comment.getId();
+    }
+
+    @Override
     public Long addPhoto(PhotoRequest photoRequest) {
         var photo = Photo.builder()
                 .title(photoRequest.getTitle())

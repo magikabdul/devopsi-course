@@ -47,8 +47,10 @@ public class PhotographsRestController {
         return ResponseEntity.ok().build();
     }
 
-    public ResponseEntity<?> addComment() {
-        return null;
+    @PostMapping("photo/{id}/comment")
+    public ResponseEntity<Long> addComment(@PathVariable Long id, @Valid @RequestBody CommentCreateRequest commentCreateRequest) {
+        return ResponseEntity.created(LocationUri.fromRequest(service.addComment(id, mapper.toDomain(commentCreateRequest))))
+                .build();
     }
 
     public ResponseEntity<?> addTag() {

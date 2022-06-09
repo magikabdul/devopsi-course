@@ -41,9 +41,10 @@ public class PhotographsRestController {
         return ResponseEntity.ok(mapper.toRest(album));
     }
 
-    @GetMapping("photo/{id}/album")
-    public ResponseEntity<?> addToAlbum(@PathVariable Long id) {
-        return null;
+    @GetMapping("photo/{photoId}/album/{albumId}")
+    public ResponseEntity<?> addToAlbum(@PathVariable Long photoId, @PathVariable Long albumId) {
+        service.addPhotoToAlbum(photoId, albumId);
+        return ResponseEntity.ok().build();
     }
 
     public ResponseEntity<?> addComment() {

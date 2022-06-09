@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -29,5 +30,9 @@ public class AlbumEntity {
     private int views;
 
     @OneToMany(mappedBy = "album")
-    private List<PhotoEntity> photos;
+    private List<PhotoEntity> photos = new ArrayList<>();
+
+    public void addPhoto(PhotoEntity photoEntity) {
+        photos.add(photoEntity);
+    }
 }

@@ -13,5 +13,9 @@ public interface PhotographsRepository {
 
     Album updateAlbum(Album album);
 
-    Optional<Album> findAlbum(Long id);
+    Optional<Album> getAlbumById(Long id);
+
+    Optional<Photo> getPhotoById(Long id);
+
+    void addPhotoToAlbum(Photo photo, Album album);
 }

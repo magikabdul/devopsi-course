@@ -11,4 +11,6 @@ public interface PhotographsService {
     Long createAlbum(AlbumRequest albumRequest);
 
     Album findAlbum(Long id);
+
+    void addPhotoToAlbum(Long photoId, Long albumId);
 }

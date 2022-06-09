@@ -33,6 +33,23 @@ public class PhotographsRepositoryAdapter implements PhotographsRepository {
     private final PhotographsRepositoryMapper mapper;
 
     @Override
+    public void addPhotoToAlbum(Photo photo, Album album) {
+        var albumEntity = albumRepository.findById(album.getId());
+        var photoEntity = photoRepository.findById(photo.getId());
+
+        if (albumEntity.isPresent() && photoEntity.isPresent()) {
+            var updatedPhoto = photoEntity.get();
+            var updatedAlbum = albumEntity.get();
+
+            updatedAlbum.addPhoto(updatedPhoto);
+            updatedPhoto.setAlbum(updatedAlbum);
+
+            albumRepository.save(updatedAlbum);
+            photoRepository.save(updatedPhoto);
+        }
+    }
+
+    @Override
     public Album updateAlbum(Album album) {
         var albumEntity = albumRepository.findById(album.getId());
 
@@ -42,7 +59,13 @@ public class PhotographsRepositoryAdapter implements PhotographsRepository {
     }
 
     @Override
-    public Optional<Album> findAlbum(Long id) {
+    public Optional<Photo> getPhotoById(Long id) {
+        var photo = photoRepository.findById(id);
+        return photo.map(mapper::toDomain);
+    }
+
+    @Override
+    public Optional<Album> getAlbumById(Long id) {
         var album = albumRepository.findById(id);
         return album.map(mapper::toDomainFound);
     }

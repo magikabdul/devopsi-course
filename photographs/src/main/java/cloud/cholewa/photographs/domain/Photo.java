@@ -21,4 +21,5 @@ public class Photo {
     private List<String> tags;
     private String location;
     private PrivacyType privacy;
+    private List<Comment> comments;
 }

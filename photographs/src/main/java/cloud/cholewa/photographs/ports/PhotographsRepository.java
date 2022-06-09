@@ -4,6 +4,7 @@ import cloud.cholewa.photographs.domain.Album;
 import cloud.cholewa.photographs.domain.Comment;
 import cloud.cholewa.photographs.domain.Photo;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface PhotographsRepository {
@@ -21,4 +22,6 @@ public interface PhotographsRepository {
     void addPhotoToAlbum(Photo photo, Album album);
 
     Comment addComment(Photo photo, Comment comment);
+
+    Photo getPhotoByIdWithComments(Long id);
 }

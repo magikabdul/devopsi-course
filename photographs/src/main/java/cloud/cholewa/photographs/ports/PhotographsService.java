@@ -3,6 +3,7 @@ package cloud.cholewa.photographs.ports;
 import cloud.cholewa.photographs.domain.Album;
 import cloud.cholewa.photographs.domain.AlbumRequest;
 import cloud.cholewa.photographs.domain.CommentRequest;
+import cloud.cholewa.photographs.domain.Photo;
 import cloud.cholewa.photographs.domain.PhotoRequest;
 
 public interface PhotographsService {
@@ -16,4 +17,6 @@ public interface PhotographsService {
     void addPhotoToAlbum(Long photoId, Long albumId);
 
     Long addComment(Long photoId, CommentRequest commentRequest);
+
+    Photo getPhotoWithComments(Long id);
 }

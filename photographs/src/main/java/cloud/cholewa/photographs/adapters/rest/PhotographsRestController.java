@@ -1,6 +1,7 @@
 package cloud.cholewa.photographs.adapters.rest;
 
 import cloud.cholewa.photographs.commons.LocationUri;
+import cloud.cholewa.photographs.domain.Photo;
 import cloud.cholewa.photographs.ports.PhotographsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -53,19 +54,8 @@ public class PhotographsRestController {
                 .build();
     }
 
-    public ResponseEntity<?> addTag() {
-        return null;
-    }
-
-    public ResponseEntity<?> getPhotoComments() {
-        return null;
-    }
-
-    public ResponseEntity<?> getPhoto() {
-        return null;
-    }
-
-    public ResponseEntity<?> getLocationPhotos() {
-        return null;
+    @GetMapping("photo/{id}/comment")
+    public ResponseEntity<PhotoCommentsResponse> getPhotoComments(@PathVariable Long id) {
+        return ResponseEntity.ok(mapper.toRest(service.getPhotoWithComments(id)));
     }
 }

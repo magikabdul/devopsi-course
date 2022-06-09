@@ -12,6 +12,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Named;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Mapper(componentModel = "spring")
 public interface PhotographsRepositoryMapper {
@@ -56,4 +57,23 @@ public interface PhotographsRepositoryMapper {
                 .views(albumEntity.getViews())
                 .build();
     }
+
+//    Comment toDomain(CommentEntity commentEntity);
+
+    default Photo withComments(PhotoEntity photoEntity) {
+        return Photo.builder()
+                .title(photoEntity.getTitle())
+                .description(photoEntity.getDescription())
+                .comments(photoEntity.getComments().stream()
+                        .map(comment -> Comment.builder()
+                                .date(comment.getDate())
+                                .body(comment.getBody())
+                                .build()
+                        )
+                        .collect(Collectors.toList()))
+                .build();
+    }
+
+//    @IterableMapping(elementTargetType = Comment.class)
+//    List<Comment> toDomain(List<CommentEntity> commentEntities);
 }

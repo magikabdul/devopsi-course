@@ -35,6 +35,12 @@ public class PhotographsRepositoryAdapter implements PhotographsRepository {
     private final PhotographsRepositoryMapper mapper;
 
     @Override
+    public Photo getPhotoByIdWithComments(Long id) {
+        var photosWithComments = photoRepository.findPhotoEntityByIdWithComments(id).orElseThrow();
+        return mapper.withComments(photosWithComments);
+    }
+
+    @Override
     public Comment addComment(Photo photo, Comment comment) {
         var commentEntity = new CommentEntity();
         commentEntity.setDate(comment.getDate());

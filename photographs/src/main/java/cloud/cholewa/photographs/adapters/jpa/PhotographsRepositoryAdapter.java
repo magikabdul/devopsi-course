@@ -18,6 +18,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
+import java.util.Optional;
 
 @Transactional
 @Component
@@ -30,6 +31,21 @@ public class PhotographsRepositoryAdapter implements PhotographsRepository {
     private final JpaCommentRepository commentRepository;
     private final JpaAlbumRepository albumRepository;
     private final PhotographsRepositoryMapper mapper;
+
+    @Override
+    public Album updateAlbum(Album album) {
+        var albumEntity = albumRepository.findById(album.getId());
+
+        albumEntity.ifPresent(entity -> entity.setViews(album.getViews()));
+
+        return mapper.toDomainFound(albumRepository.save(albumEntity.get()));
+    }
+
+    @Override
+    public Optional<Album> findAlbum(Long id) {
+        var album = albumRepository.findById(id);
+        return album.map(mapper::toDomainFound);
+    }
 
     @Override
     public Album addAlbum(Album album) {

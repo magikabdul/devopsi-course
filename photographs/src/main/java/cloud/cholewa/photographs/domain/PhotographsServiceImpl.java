@@ -1,5 +1,6 @@
 package cloud.cholewa.photographs.domain;
 
+import cloud.cholewa.photographs.adapters.rest.AlbumResponse;
 import cloud.cholewa.photographs.ports.DateProvider;
 import cloud.cholewa.photographs.ports.PhotographsRepository;
 import cloud.cholewa.photographs.ports.PhotographsService;
@@ -42,5 +43,13 @@ public class PhotographsServiceImpl implements PhotographsService {
         var savedAlbum = repository.addAlbum(album);
 
         return savedAlbum.getId();
+    }
+
+    @Override
+    public Album findAlbum(Long id) {
+        var album = repository.findAlbum(id).orElseThrow(() -> new PhotographsException("Album not found"));
+        album.setViews(album.getViews() + 1);
+        repository.updateAlbum(album);
+        return album;
     }
 }

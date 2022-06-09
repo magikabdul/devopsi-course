@@ -13,5 +13,6 @@ public class Album {
     private String title;
     private String description;
     private List<Photo> photos;
+    private int views;
 
 }
